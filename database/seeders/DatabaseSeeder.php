@@ -18,5 +18,22 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $incidents = [
+            "Incendie",
+            "Accident routier",
+            "Accident fluviale",
+            "Accident aérien",
+            "Eboulement",
+            "Invasion de serpent",
+            "Fuite de gaz",
+            "Manifestation",
+            "Braquage",
+            "Evasion d’un prisonnier"
+        ];
+        foreach ($incidents as $incident) {
+            \App\Models\Incident::factory()->create([
+                'name' => $incident
+            ]);
+        }
     }
 }
