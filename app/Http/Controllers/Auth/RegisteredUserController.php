@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:users',
             'phone' => 'required|string|max:255|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'latitude' => 'required|numeric|between:-90,90',

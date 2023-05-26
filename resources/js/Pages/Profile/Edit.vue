@@ -11,9 +11,6 @@ defineProps({
     },
     incidents: {
         type: Array
-    },
-    UserIncidents: {
-        type: Array
     }
 });
 </script>

@@ -39,7 +39,7 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:users,name,' . $request->user()->id,
             'phone' => 'required|string|max:255|unique:users,phone,' . $request->user()->id . '|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'latitude' => 'required|numeric|between:-90,90',
             'longitude' => 'required|numeric|between:-90,90',
